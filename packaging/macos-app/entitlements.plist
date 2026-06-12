@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Hardened-runtime entitlements for notarizing the Cairn .app.
+
+  A PyInstaller/Python app loads bundled .dylibs and .so extensions that aren't
+  signed by your Team ID, and CPython allocates executable memory — so the
+  hardened runtime needs these relaxations or the app crashes on launch after
+  signing. We do NOT enable the App Sandbox (notarization doesn't require it,
+  and a sandboxed app can't bind a server socket without extra entitlements).
+
+  Trim anything your build proves it doesn't need.
+-->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>com.apple.security.cs.disable-library-validation</key>
+    <true/>
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
+</dict>
+</plist>

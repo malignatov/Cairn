@@ -1,0 +1,47 @@
+[project]
+name = "cairn"
+version = "0.9.0"
+description = "A personal strategic-memory MCP server: stores your projects, decisions, commitments, principles, ideas, and life signals so an LLM can help you think across days, weeks, and years. A thin, auditable staging layer over one SQLite file — no reasoning of its own."
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Mikhail Ignatov" }]
+keywords = ["mcp", "model-context-protocol", "personal-knowledge", "sqlite", "claude"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Office/Business",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "mcp>=1.2.0",
+    "pydantic>=2.0",
+    "uvicorn>=0.27",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+# Native macOS menu-bar app (PyInstaller build). Linux/Docker users don't need these.
+macos = ["rumps>=0.4"]
+
+[project.urls]
+Homepage = "https://github.com/malignatov/Cairn"
+Repository = "https://github.com/malignatov/Cairn"
+Issues = "https://github.com/malignatov/Cairn/issues"
+
+[project.scripts]
+cairn = "meta_assistant.__main__:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/meta_assistant"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

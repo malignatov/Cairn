@@ -1,0 +1,32 @@
+# python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+.build-venv/
+dist/
+build/
+
+# project data — NEVER commit personal data.
+# The live DB and every backup are the user's private life-graph.
+data/
+backups/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+# backups are named meta.db.<timestamp>.<suffix> — the suffix is NOT `.db`, so
+# the *.db glob alone misses them. Match the name pattern explicitly too.
+meta.db.*
+
+# local agent / editor config (machine-specific, may embed local paths)
+.claude/settings.local.json
+.claude/worktrees/
+
+# editor / OS
+.DS_Store
+.idea/
+.vscode/
+.build-venv-app/

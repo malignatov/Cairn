@@ -1,0 +1,24 @@
+services:
+  meta-assistant:
+    build: .
+    container_name: meta-assistant
+    # Published to the host's LOOPBACK only. The container binds 0.0.0.0
+    # internally (it must, to be reachable through a published port), but this
+    # mapping keeps it off your LAN. To expose it deliberately, change the host
+    # side to 0.0.0.0 AND set META_AUTH_TOKEN below — never one without the other.
+    ports:
+      - "127.0.0.1:8000:8000"
+    # environment:
+    #   # Require a bearer token (enable when exposing beyond loopback).
+    #   # Generate: python -c "import secrets; print(secrets.token_urlsafe(24))"
+    #   META_AUTH_TOKEN: "your-long-random-token"
+    volumes:
+      # persistent SQLite file
+      - ./data:/app/data
+      # live-editable markdown content (directory mounts only — single-file
+      # bind-mounts are unreliable on Docker Desktop for Mac). The
+      # constitution is baked into the image via COPY; rebuild to update it.
+      - ./skills:/app/skills
+      - ./schemas:/app/schemas
+      - ./guides:/app/guides
+    restart: unless-stopped
