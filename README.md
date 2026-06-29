@@ -1,7 +1,8 @@
 # Cairn
 
-A small [MCP](https://modelcontextprotocol.io) server that stores your
-projects, decisions, commitments, principles, ideas, and life signals so an
+Cairn is such a small [MCP](https://modelcontextprotocol.io) server which holds data which matters for you strategically, ready to expose it to any LLM connecting to it via MCP, alongside with proven Psychological frameworks and istructions guiding the model while doing assesments, scannig, opprotunity search, read and write operations. 
+
+It locally stores your projects, decisions, commitments, principles, ideas, and life signals so an
 LLM client (Claude Desktop, the Claude apps, or anything that speaks MCP) can
 help you think across days, weeks, quarters, and years. The server does no
 reasoning of its own — it's a thin, auditable staging layer over one SQLite
@@ -10,21 +11,6 @@ that tell the LLM how to behave.
 
 The philosophy lives in [`constitution.md`](./constitution.md). Start there if
 you want to know what Cairn is *for*.
-
-> ### This is a personal system — fork it empty
->
-> Cairn holds one person's private life-graph. **This repository ships no
-> user data.** The database is created **empty** on first run (seeded only
-> with the 16 Strategic Life Units everyone starts from). When you clone or
-> fork it you get the empty skeleton — which is exactly what you want: it's
-> *your* memory to fill, not anyone else's.
->
-> The live database (`data/meta.db`) and every backup (`backups/`) are
-> **git-ignored and must never be committed** — they are deeply personal
-> (people, finances, health, family). If you contribute, double-check your
-> diff never includes a `.db` or a `backups/` file.
-
----
 
 ## Installing
 
@@ -92,7 +78,7 @@ confirmed. No write to the canonical tables happens without your explicit OK —
 that's the whole point of the `drafts` table: a safety net for an LLM that
 might otherwise enthusiastically record things you didn't quite mean.
 
-## Commitments, stakeholders, interests (v3.1)
+## Commitments, stakeholders, interests
 
 - **Commitments** — small promises you make, to yourself or someone else.
   Different from decisions (which choose) and projects (which have scope). The
@@ -105,7 +91,7 @@ might otherwise enthusiastically record things you didn't quite mean.
 All go through the draft/commit flow — the assistant drafts one at a time, you
 confirm each.
 
-## The strategic substrate (v3)
+## The strategic substrate
 
 Something concrete to think *against*, so "blindspot" detection isn't vibes.
 
@@ -122,7 +108,7 @@ Something concrete to think *against*, so "blindspot" detection isn't vibes.
   inbox. When it flags a blindspot, it's pointing at a specific row in your own
   data.
 
-## The proactive flow (v2)
+## The proactive flow
 
 Where capture records what you said, the proactive flow surfaces what you
 *didn't* ask about. `opportunity_research` pulls your active projects/decisions,
@@ -131,7 +117,7 @@ forms its own research questions, does real web research, and writes a few
 (the storage layer rejects un-anchored noise). `inbox` triages them: accept /
 reject (with a reason future runs read) / defer.
 
-## Principles (v7), ideas (v8), digest (v9)
+## Principles, ideas, digest
 
 - **Principles** — your *ranked* operating rules, checked against decisions.
   Prescriptive (how you choose), distinct from PERMA-V (how life is going). A
