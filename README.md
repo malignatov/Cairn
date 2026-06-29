@@ -1,6 +1,6 @@
 # Cairn
 
-Cairn is such a small [MCP](https://modelcontextprotocol.io) server which holds data which matters for you strategically, ready to expose it to any LLM connecting to it via MCP, alongside with proven Psychological frameworks and istructions guiding the model while doing assesments, scannig, opprotunity search, read and write operations. 
+Cairn is a small [MCP](https://modelcontextprotocol.io) server which holds data which matters for you strategically, ready to expose it to any LLM connecting to it via MCP, alongside with proven Psychological frameworks and istructions guiding the model while doing assesments, scannig, opprotunity search, read and write operations. 
 
 It locally stores your projects, decisions, commitments, principles, ideas, and life signals so an
 LLM client (Claude Desktop, the Claude apps, or anything that speaks MCP) can
